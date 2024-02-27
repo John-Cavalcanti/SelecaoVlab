@@ -1,11 +1,15 @@
 <div class="background-canva">
     <div class="game-list">
-        ola
+        GamesJson = 
+        
         <ul>
-            <li *ngFor="let game of games">
+            <li *ngFor="let game of gamesJson">
                 <app-game-card></app-game-card>
-                <p> {{ game }} </p>
+                <p> {{ game.title }} </p>
             </li>
         </ul>
+
+        
+        
     </div>
 </div>

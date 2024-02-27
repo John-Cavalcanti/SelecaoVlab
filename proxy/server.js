@@ -1,8 +1,8 @@
 var host = "localhost";
 var port = 4123;
 
-var cors_proxy = require('cors-anywhere');
-cors_proxy.createServer({
+import { createServer } from 'cors-anywhere';
+createServer({
     originWhitelist: [], // Allow all origins
     requireHeader: ['origin', 'x-requested-with'],
     removeHeaders: ['cookie', 'cookie2']
