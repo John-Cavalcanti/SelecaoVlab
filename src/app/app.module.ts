@@ -3,16 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GameCardComponent } from './components/game-card/game-card.component';
+import { ListModule } from './list/list.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameCardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
