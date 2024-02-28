@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './list/homepage/homepage.component';
-import { GamesListingComponent } from './list/games-listing/games-listing.component';
+import { GamePageComponent } from './list/game-page/game-page.component';
 
 const routes: Routes = [
   {
@@ -9,8 +9,8 @@ const routes: Routes = [
     component: HomepageComponent
   },
   {
-    path: 'listing',
-    component: GamesListingComponent
+    path: 'game/:id',
+    component: GamePageComponent
 
   }
 ];

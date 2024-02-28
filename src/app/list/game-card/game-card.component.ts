@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { GamesService } from '../../services/games/games.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game-card',
@@ -9,6 +11,21 @@ export class GameCardComponent {
 
   @Input()
   gameInfo: any = {}
-  gameId = this.gameInfo.id;
+  gameId: number = -1; // atribuindo -1 para quando gameinfo ainda nao foi instanciado
+
+  constructor(
+    private myGameApiService: GamesService,
+    private myRouter: Router
+  )
+  {}
+
+  openGamePageById(): void
+  {
+    this.gameId = this.gameInfo.id
+
+    if (this.gameInfo.id) {
+      this.myRouter.navigate(['/game', this.gameInfo.id]);
+    }
+  }
 
 }
