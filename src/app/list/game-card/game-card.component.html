@@ -1,1 +1,9 @@
-<p>game-card works!</p>
+<!-- exibir nome, capa e plataforma -->
+<div class="card">
+    <img [src]="gameInfo.thumbnail" alt="" srcset="">
+    <h1> {{ gameInfo.title }} </h1>
+    <div>
+        <h3> Plataforma </h3>
+        <p> {{gameInfo.platform}} </p>
+    </div>
+</div>
