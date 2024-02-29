@@ -12,20 +12,20 @@
                 <option *ngFor="let filter of platformFilters " [value]="filter"> {{ filter }} </option>
             </select>
 
-            <label for="platform">Category:</label>
-            <select id="platform" [(ngModel)]="chosenCategoryFilter">
+            <label for="category">Category:</label>
+            <select id="category" [(ngModel)]="chosenCategoryFilter">
                 <option value="">None</option>
                 <option *ngFor="let filter of categoryFilters " [value]="filter"> {{ filter }} </option>
             </select>
 
-            <label for="platform">Developer:</label>
-            <select id="platform" [(ngModel)]="chosenDeveloperFilter">
+            <label for="developer">Developer:</label>
+            <select id="developer" [(ngModel)]="chosenDeveloperFilter">
                 <option value="">None</option>
                 <option *ngFor="let filter of developerFilters " [value]="filter"> {{ filter }} </option>
             </select>
 
-            <label for="platform">Release Year:</label>
-            <select id="platform" [(ngModel)]="chosenReleaseYearFilter">
+            <label for="releaseYear">Release Year:</label>
+            <select id="releaseYear" [(ngModel)]="chosenReleaseYearFilter">
                 <option value="">None</option>
                 <option *ngFor="let filter of releaseYearFilters " [value]="filter"> {{ filter }} </option>
             </select>
@@ -38,6 +38,9 @@
                 <option value="alphabetical">Alphabetical</option>
                 <option value="relevance">Relevance</option>
             </select>
+
+            <label for="onlyFavorites">Only Favorites</label>
+            <input id="onlyFavorites" type="checkbox" [(ngModel)]="onlyFavorites" (click)="getGamesByFilterAndOrder()">
 
             <button (click)="getGamesByFilterAndOrder()">Aplicar Filtros</button>
         </div>
