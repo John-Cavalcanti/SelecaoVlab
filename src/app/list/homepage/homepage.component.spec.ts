@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HomepageComponent } from './homepage.component';
 
 describe('HomepageComponent', () => {
@@ -20,4 +19,13 @@ describe('HomepageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // checando de o h2 foi gerado corretamente com sua classe
+  it('Should have the correct html structure',() =>
+  {
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+
+    expect(compiled.querySelectot('h2.page-title')).toBeTruthy();
+  })
 });
