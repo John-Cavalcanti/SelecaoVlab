@@ -2,6 +2,42 @@
 
 A princípio este é um repositório de um desafio para a implementação de um projeto em Angular de uma página que mostra jogos free-to-play baseado na freetogame API.
 
+## Rodando o projeto
+
+Para rodar o projeto é necessário ter o Angular-cli instalado e rodar os seguintes comandos :
+
+Devem existir dois terminais abertos, no primeiro será necessário entrar na pasta proxy :
+```bash
+cd proxy
+```
+
+Logo após executar este comando para que as requisições para a api funcionem :
+```bash
+node ./server.js
+```
+
+Após isso com outro terminal aberto no diretório principal do projeto(root), execute os comandos :
+```bash
+npm install
+```
+Para garantir que está tudo atualizado.
+
+Logo após para inicializar o projeto Angular execute o comando
+```bash
+npm start
+```
+ou
+```bash
+ng serve
+```
+
+Então clique no link do localhost e teste a aplicação.
+
+Para rodar testes apenas será necessário executar em seu terminal aberto na raíz do diretório o comando:
+```bash
+ng test
+```
+
 ## Minha implementação
 
 Tive como objetivos para este desafio criar uma tela inicial onde serão exibidos todos os jogos. 
