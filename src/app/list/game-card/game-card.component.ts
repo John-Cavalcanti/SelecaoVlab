@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { GamesService } from '../../services/games/games.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +13,6 @@ export class GameCardComponent {
   gameId: number = -1; // atribuindo -1 para quando gameinfo ainda nao foi instanciado
 
   constructor(
-    private myGameApiService: GamesService,
     private myRouter: Router
   )
   {}

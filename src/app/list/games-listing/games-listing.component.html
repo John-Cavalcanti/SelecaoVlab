@@ -1,7 +1,54 @@
 <div class="background-canva">
+
+    <div class="filters-section">
+        <div class="filter-section">
+            <!-- Adicione controles de filtro aqui (por exemplo, select boxes, input fields) -->
+            <!-- Exemplo: -->
+
+            <!-- filtros a serem contados : plataforma, categoria, desenvolvedora, ano de lançamento(tentar) -->
+            <label for="platform">Plataform:</label>
+            <select id="platform" [(ngModel)]="chosenPlatformFilter">
+                <option value="">None</option>
+                <option *ngFor="let filter of platformFilters " [value]="filter"> {{ filter }} </option>
+            </select>
+
+            <label for="platform">Category:</label>
+            <select id="platform" [(ngModel)]="chosenCategoryFilter">
+                <option value="">None</option>
+                <option *ngFor="let filter of categoryFilters " [value]="filter"> {{ filter }} </option>
+            </select>
+
+            <label for="platform">Developer:</label>
+            <select id="platform" [(ngModel)]="chosenDeveloperFilter">
+                <option value="">None</option>
+                <option *ngFor="let filter of developerFilters " [value]="filter"> {{ filter }} </option>
+            </select>
+
+            <label for="platform">Release Year:</label>
+            <select id="platform" [(ngModel)]="chosenReleaseYearFilter">
+                <option value="">None</option>
+                <option *ngFor="let filter of releaseYearFilters " [value]="filter"> {{ filter }} </option>
+            </select>
+
+            <label for="orderBy">Order by:</label>
+            <select id="orderBy" [(ngModel)]="orderByFilter">
+                <option value="">None</option>
+                <option value="release-date">Release date</option>
+                <option value="popularity">Popularity</option>
+                <option value="alphabetical">Alphabetical</option>
+                <option value="relevance">Relevance</option>
+            </select>
+
+            <button (click)="getGamesByFilterAndOrder()">Aplicar Filtros</button>
+        </div>
+
+
+    </div>
+
     <div class="main-section">
         <ul class="game-list">
-            <li *ngFor="let game of gamesJson" class="list-item">
+            <li *ngFor="let game of gamesJson" 
+            class="list-item">
                 <app-game-card [gameInfo]="game"></app-game-card>
             </li>
         </ul>

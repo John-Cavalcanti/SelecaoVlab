@@ -40,7 +40,7 @@ export class GamePageComponent implements OnInit {
         (data: any) => {
     
           this.gameData = data;
-          console.log(this.gameData);
+          //console.log(this.gameData);
     
         }
       );

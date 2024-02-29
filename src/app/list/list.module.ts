@@ -5,6 +5,7 @@ import { GamesListingComponent } from './games-listing/games-listing.component';
 import { GameCardComponent } from './game-card/game-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GamePageComponent } from './game-page/game-page.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { GamePageComponent } from './game-page/game-page.component';
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ]
 })
 export class ListModule { }
