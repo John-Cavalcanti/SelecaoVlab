@@ -35,8 +35,23 @@ export class GamesListingComponent implements OnInit {
       this.getGames()
 
       // adicionando alguns favoritos iniciais para teste
-      this.favorites.push(540)
-      this.favorites.push(517)
+      const storedFavorites = localStorage.getItem('favorites');
+      this.favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+
+      localStorage.setItem('favorites', JSON.stringify(this.favorites));
+  }
+
+  changeFav(gameId: number):void
+  {
+    if(this.favorites.includes(gameId))
+    {
+      this.favorites = this.favorites.filter(item => item !== gameId)
+    }
+    else{
+      this.favorites.push(gameId)
+    }
+
+    localStorage.setItem('favorites', JSON.stringify(this.favorites));
   }
 
   getGames() : void
@@ -89,7 +104,7 @@ export class GamesListingComponent implements OnInit {
     )
   }
 
-  getGamesByFilterAndOrder()
+  getGamesByFilterAndOrder(favReq:boolean): void
   {
 
     let filters: Filters = {
@@ -106,10 +121,10 @@ export class GamesListingComponent implements OnInit {
       filters.category = this.chosenCategoryFilter.toLowerCase()
     }
     
-    this.onlyFavorites = !this.onlyFavorites
-    console.log(this.onlyFavorites)
-
-    
+    if(favReq)
+    {
+      this.onlyFavorites = !this.onlyFavorites
+    }
     
     if(filters.category == '' && filters.platform == '' && this.chosenDeveloperFilter == '' && this.orderByFilter == '' && !this.onlyFavorites)
     {
@@ -127,9 +142,6 @@ export class GamesListingComponent implements OnInit {
               this.gamesJson = []
 
               data.forEach((value) => {
-
-                console.log(this.favorites)
-                console.log(value.id)
                 if(this.favorites.includes(value.id))
                 {
                   this.gamesJson.push(value)

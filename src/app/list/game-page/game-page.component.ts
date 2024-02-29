@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GamesService } from '../../services/games/games.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 
 @Component({
@@ -14,7 +14,8 @@ export class GamePageComponent implements OnInit {
 
   constructor(
     private myGameApiService: GamesService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private myRoute: Router
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +30,11 @@ export class GamePageComponent implements OnInit {
       this.getGameInfo(gameId);
     
     });
+  }
+
+  goBack():void
+  {
+    this.myRoute.navigate(['../../'], { relativeTo: this.activeRoute });
   }
 
   private getGameInfo(gameId: number): void {

@@ -1,9 +1,11 @@
 <!-- exibir nome, capa e plataforma -->
 <div class="card" (click)="openGamePageById()">
     <img [src]="gameInfo.thumbnail" alt="" srcset="">
-    <h1> {{ gameInfo.title }} </h1>
-    <div>
-        <h3> Play on </h3>
-        <p> {{gameInfo.platform}} </p>
+
+    <div class="lower-part">
+        <h2> {{ gameInfo.title }} </h2>
+        <div>
+            <p> {{gameInfo.platform}} </p>
+        </div>
     </div>
 </div>

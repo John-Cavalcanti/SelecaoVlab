@@ -1,0 +1,129 @@
+.game-page
+{
+    color: #aaae97;
+}
+
+.page-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-box {
+    width: 100%;
+    margin: 0px 20px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    background-color: #2b2a1f;
+}
+
+.header-box p
+{
+    margin: 0px 10px;
+    font-size: 12px;
+}
+
+.header-box p:hover{
+    cursor: pointer;
+}
+
+.page-title{
+    margin: 15px;
+}
+
+.main-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #140f11;
+
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.main-section .upper-main{
+    margin: 0px 20px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.main-section .upper-main .thumbnail
+{
+    border-radius: 10px;
+    margin: 10px;
+}
+.main-section .upper-main .thumbnail img
+{
+    border-radius: 10px;
+}
+
+.main-section .upper-main .game-description{
+    margin: 10px;
+    padding-top: 35px;
+}
+
+.main-section .screenshots{
+    width: 100%;
+    
+}
+
+.main-section .screenshots .inner-scrs
+{
+    background-color: #0f0b0d;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    border-radius: 10px;
+}
+
+.main-section .screenshots .inner-scrs h3
+{
+    margin-left: 40px;
+}
+
+.main-section .screenshots .imgs
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    margin: 20px;
+}
+
+.main-section .screenshots .imgs img
+{
+    width: 30%;
+    border-radius: 10px;
+
+}
+
+.main-section .lower-main
+{
+    width: 100%;
+}
+
+.main-section .lower-main .inner-lower
+{
+    background-color: #0f0b0d;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: start;
+
+    border-radius: 10px;
+}

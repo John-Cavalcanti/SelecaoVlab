@@ -1,0 +1,22 @@
+.page-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-box {
+    width: 60vw;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #7b7554;
+    border-radius: 20px;
+}
+
+.page-title{
+    color: #eaf0ce;
+}

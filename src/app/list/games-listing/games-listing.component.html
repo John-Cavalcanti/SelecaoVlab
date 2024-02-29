@@ -1,59 +1,96 @@
 <div class="background-canva">
 
     <div class="filters-section">
-        <div class="filter-section">
-            <!-- Adicione controles de filtro aqui (por exemplo, select boxes, input fields) -->
-            <!-- Exemplo: -->
 
-            <!-- filtros a serem contados : plataforma, categoria, desenvolvedora, ano de lançamento(tentar) -->
-            <label for="platform">Plataform:</label>
-            <select id="platform" [(ngModel)]="chosenPlatformFilter">
-                <option value="">None</option>
-                <option *ngFor="let filter of platformFilters " [value]="filter"> {{ filter }} </option>
-            </select>
+        <!-- Adicione controles de filtro aqui (por exemplo, select boxes, input fields) -->
+        <!-- Exemplo: -->
 
-            <label for="category">Category:</label>
-            <select id="category" [(ngModel)]="chosenCategoryFilter">
-                <option value="">None</option>
-                <option *ngFor="let filter of categoryFilters " [value]="filter"> {{ filter }} </option>
-            </select>
+        <!-- filtros a serem contados : plataforma, categoria, desenvolvedora, ano de lançamento(tentar) -->
 
-            <label for="developer">Developer:</label>
-            <select id="developer" [(ngModel)]="chosenDeveloperFilter">
-                <option value="">None</option>
-                <option *ngFor="let filter of developerFilters " [value]="filter"> {{ filter }} </option>
-            </select>
+        <div class="upper">
+            <div class="platform-filter filter">
+                <label for="platform">Plataform:</label>
+                <select id="platform" [(ngModel)]="chosenPlatformFilter">
+                    <option value="">None</option>
+                    <option *ngFor="let filter of platformFilters " [value]="filter"> {{ filter }} </option>
+                </select>
+            </div>
 
-            <label for="releaseYear">Release Year:</label>
-            <select id="releaseYear" [(ngModel)]="chosenReleaseYearFilter">
-                <option value="">None</option>
-                <option *ngFor="let filter of releaseYearFilters " [value]="filter"> {{ filter }} </option>
-            </select>
 
-            <label for="orderBy">Order by:</label>
-            <select id="orderBy" [(ngModel)]="orderByFilter">
-                <option value="">None</option>
-                <option value="release-date">Release date</option>
-                <option value="popularity">Popularity</option>
-                <option value="alphabetical">Alphabetical</option>
-                <option value="relevance">Relevance</option>
-            </select>
+            <div class="category-filter filter">
+                <label for="category">Category:</label>
+                <select id="category" [(ngModel)]="chosenCategoryFilter">
+                    <option value="">None</option>
+                    <option *ngFor="let filter of categoryFilters " [value]="filter"> {{ filter }} </option>
+                </select>
+            </div>
 
-            <label for="onlyFavorites">Only Favorites</label>
-            <input id="onlyFavorites" type="checkbox" [(ngModel)]="onlyFavorites" (click)="getGamesByFilterAndOrder()">
 
-            <button (click)="getGamesByFilterAndOrder()">Aplicar Filtros</button>
+
+            <div class="developer-filter filter">
+                <label for="developer">Developer:</label>
+                <select id="developer" [(ngModel)]="chosenDeveloperFilter">
+                    <option value="">None</option>
+                    <option *ngFor="let filter of developerFilters " [value]="filter"> {{ filter }} </option>
+                </select>
+            </div>
+
+
+
+            <div class="year-filter filter">
+                <label for="releaseYear">Release Year:</label>
+                <select id="releaseYear" [(ngModel)]="chosenReleaseYearFilter">
+                    <option value="">None</option>
+                    <option *ngFor="let filter of releaseYearFilters " [value]="filter"> {{ filter }} </option>
+                </select>
+            </div>
+
+
+
+            <div class="order-filter filter">
+                <label for="orderBy">Order by:</label>
+                <select id="orderBy" [(ngModel)]="orderByFilter">
+                    <option value="">None</option>
+                    <option value="release-date">Release date</option>
+                    <option value="popularity">Popularity</option>
+                    <option value="alphabetical">Name</option>
+                    <option value="relevance">Relevance</option>
+                </select>
+            </div>
+
+            <div class="btn-box">
+                <button class="filter-btn" (click)="getGamesByFilterAndOrder(false)">Aplicar Filtros</button>
+            </div>
+        
         </div>
 
-
+        <div class="lower">
+            <div class="favorites-filter filter">
+                <label for="onlyFavorites">Only Favorites</label>
+                <input id="onlyFavorites" type="checkbox" [(ngModel)]="onlyFavorites"
+                    (click)="getGamesByFilterAndOrder(true)"
+                    >
+            </div>
+        </div>
     </div>
 
-    <div class="main-section">
+    <div class="main-section" *ngIf="gamesJson">
         <ul class="game-list">
-            <li *ngFor="let game of gamesJson" 
-            class="list-item">
+            <li *ngFor="let game of gamesJson" class="list-item">
                 <app-game-card [gameInfo]="game"></app-game-card>
+
+                <div *ngIf="!favorites.includes(game.id);else elseBloc" >
+                    <button (click)="changeFav(game.id)" class="add-fav-btn">Add to Favorites</button>
+                </div>
+
+                <ng-template #elseBloc>
+                    <button (click)="changeFav(game.id)" class="add-fav-btn active">Remove from Favorites</button>
+                </ng-template>
+                
             </li>
         </ul>
+        
     </div>
+
+    
 </div>

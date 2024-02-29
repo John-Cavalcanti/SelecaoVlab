@@ -1,0 +1,30 @@
+.card:hover{
+    cursor: pointer;
+}
+
+.card img{
+    border-radius: 5px;
+    width: 100%;
+}
+
+.card .lower-part{
+    margin: 10px;
+    padding: 5px;
+    height: fit-content;
+    color: #eaf0ce;
+    border-radius: 5px;
+
+}
+
+.lower-part h2{
+    margin-bottom: 0px;
+}
+
+.card .lower-part div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+
+    
+}

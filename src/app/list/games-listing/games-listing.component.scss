@@ -1,17 +1,161 @@
+.background-canva{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}
+
+.filters-section
+{
+    margin: 20px 40px;
+    padding: 10px;
+    width: 85vw;
+    max-width: 90vw;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #140f11;
+    color: #eaf0ce;
+}
+
+.filters-section .upper{
+    display: flex;
+    flex-direction: row;
+}
+
+.filter {
+    padding: 5px;
+    margin: 5px;
+}
+
+.filter select{
+    background-color: #1c1618;
+    color: #c3dbc5;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 3px;
+}
+
+.btn-box
+{
+    display: flex;
+    align-items: end;
+    justify-content:end;
+    padding-right: 15px;
+}
+
+.filters-section .filter-btn
+{
+    width: 6.5vw;
+    height: 6.5vh;
+    min-height: 35px;
+    max-height: 40px;
+    font-size: 0.85vw;
+
+    border-radius: 10px;
+    margin-bottom: 5px;
+
+    color: #c3dbc5;
+    background-color: #1c1618;
+}
+
+.filters-section .filter-btn:hover{
+    cursor: pointer;
+    background-color: #251e21;
+}
+
+.favorites-filter{
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+}
+
+.favorites-filter input
+{
+    width: 15px;
+    height: 15px;
+
+    color: #140f11;
+}
+
+.favorites-filter:hover,
+.favorites-filter label:hover,
+.favorites-filter input:hover
+{
+    cursor: pointer;
+}
+
+
 .main-section
 {
+    width: 85vw;
     max-width: 90vw;
+    background-color: #120e10;
+    border-radius: 10px;
 }
 
 .game-list
 {
     list-style: none;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 16px;
 }
 
 .list-item{
-    background-color: cadetblue;
-    padding:0;
+    background-color: #251e21;
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.list-item .add-fav-btn
+{
+    width: 6.5vw;
+    height: 6.5vh;
+    min-height: 35px;
+    max-height: 40px;
+    font-size: 0.85vw;
+
+    border: 0px solid #120e10;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+
+    color: #120e10;
+    font-weight: 100;
+    background-color: #0055a0;
+}
+
+.list-item .add-fav-btn:hover{
+    cursor: pointer;
+    background-color: #0078e1;
+}
+
+.list-item .add-fav-btn.active
+{
+    width: 6.5vw;
+    height: 6.5vh;
+    min-height: 35px;
+    max-height: 40px;
+    font-size: 0.85vw;
+
+    border: 0px solid #120e10;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+
+    color: #120e10;
+    font-weight: 100;
+    background-color: #fc5130;
+}
+
+.list-item .add-fav-btn.active:hover{
+    cursor: pointer;
+    background-color: #f9b5ac;
 }

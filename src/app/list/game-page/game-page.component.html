@@ -1,51 +1,70 @@
 <div *ngIf="gameData" class="game-page">
-    <h1>Mores details about {{ gameData.title }}</h1>
 
-    <div>
-        <div class="thumbnail">
-            <img [src]="gameData.thumbnail" alt="" srcset="" />
+    <header class="page-header">
+        <div class="header-box">
+            <p (click)="goBack()"> <  Go Back </p>
+            <h2 class="page-title">Mores details about {{ gameData.title }}</h2>
         </div>
+    </header>
 
-        <div class="game-description">
-            <h3>Description</h3>
-            <p>{{ gameData.description }}</p>
-        </div>
-    </div>
+    <div class="main-section">
+        <h1> {{ gameData.title}} </h1>
+        <div class="upper-main">
 
-    <div class="screenshots">
-        <h3>Images</h3>
-        <img *ngFor="let imgObj of gameData.screenshots" [src]="imgObj.image" alt="imagem do jogo" srcset="" />
-    </div>
+            <div class="thumbnail">
+                <img [src]="gameData.thumbnail" alt="" srcset="" />
+            </div>
 
-    <div class="more-info">
-        <div class="dev-info">
-            <h4>Developed by</h4>
-            <p>{{ gameData.developer }}</p>
-        </div>
-
-        <div class="dist-info">
-            <h4>Published by</h4>
-            <p>{{ gameData.publisher }}</p>
-        </div>
-
-        <div class="platform">
-            <p>This game is available to {{ gameData.platform }}</p>
-        </div>
-
-        <div class="release-date">
-            <h4>Release Date</h4>
-            <p>{{ gameData.release_date }}</p>
-        </div>
-
-        <div class="system-req">
-            <h4>Minimun System Requirements</h4>
-            <div *ngFor="
-        let requirement of gameData.minimum_system_requirements | keyvalue
-        ">
-                <p>
-                    <strong> {{ requirement.key }} : </strong> {{ requirement.value }}
-                </p>
+            <div class="game-description">
+                <h3>Description</h3>
+                <p>{{ gameData.description }}</p>
             </div>
         </div>
+
+        <div class="screenshots">
+            <div class="inner-scrs">
+                <h3>In-Game Images</h3>
+                <div class="imgs">
+                    <img *ngFor="let imgObj of gameData.screenshots" [src]="imgObj.image" alt="imagem do jogo"
+                        srcset="" />
+                </div>
+            </div>
+        </div>
+
+        <div class="lower-main">
+
+            <div class="inner-lower">
+                <div class="dev-info">
+                    <h4>Developed by : </h4>
+                    <p>{{ gameData.developer }}</p>
+                </div>
+
+                <div class="dist-info">
+                    <h4>Published by : </h4>
+                    <p>{{ gameData.publisher }}</p>
+                </div>
+
+                <div class="platform">
+                    <h4>Game is available on : </h4>
+                    <p> {{ gameData.platform }}</p>
+                </div>
+
+                <div class="release-date">
+                    <h4>Release Date : </h4>
+                    <p>{{ gameData.release_date }}</p>
+                </div>
+
+                <div class="system-req">
+                    <h4>Minimun System Requirements : </h4>
+                    <div *ngFor="let requirement of gameData.minimum_system_requirements | keyvalue">
+                        <p>
+                            <strong> {{ requirement.key }} : </strong> {{ requirement.value }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
+
 </div>
