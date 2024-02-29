@@ -7,7 +7,7 @@ describe('GamesService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule], // Importe o módulo de teste para o HttpClient
+      imports: [HttpClientTestingModule], 
     });
     service = TestBed.inject(GamesService);
   });

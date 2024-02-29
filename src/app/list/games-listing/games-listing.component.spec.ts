@@ -36,7 +36,6 @@ describe('GamesListingComponent', () => {
     // Verificar se os elementos HTML estão presentes
     expect(compiled.querySelector('.platform-filter')).toBeTruthy();
     expect(compiled.querySelector('.category-filter')).toBeTruthy();
-     // adicionar para os outros filtros
   });
 });
 
